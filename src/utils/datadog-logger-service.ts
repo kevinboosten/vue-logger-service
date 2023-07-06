@@ -1,25 +1,27 @@
 import { LoggerService } from "./logger-service";
 
-export class DatadogLogger implements LoggerService {
-  private client: any;
+export type RemoteLoggerOptions = {
+  apiKey: string;
+};
 
-  constructor(apiKey: string) {
-    this.client = new Datadog(apiKey);
+export class RemoteLogger implements LoggerService {
+  constructor(options?: RemoteLoggerOptions) {
+    console.log(`🚀 ~ RemoteLogger ~ options:`, options);
   }
 
   log(message: string, meta?: Record<string, string | number | boolean>): void {
-    throw new Error("Method not implemented.");
+    console.log(`🚀 ~ RemoteLogger ~ message:`, message);
   }
 
   info(message: string, meta?: Record<string, string | number | boolean>): void {
-    throw new Error("Method not implemented.");
+    console.info(`🚀 ~ RemoteLogger ~ message:`, message);
   }
 
   warn(message: string, meta?: Record<string, string | number | boolean>): void {
-    throw new Error("Method not implemented.");
+    console.warn(`🚀 ~ RemoteLogger ~ message:`, message);
   }
 
   error(message: string, meta?: Record<string, string | number | boolean>): void {
-    throw new Error("Method not implemented.");
+    console.error(`🚀 ~ RemoteLogger ~ message:`, message);
   }
 }
